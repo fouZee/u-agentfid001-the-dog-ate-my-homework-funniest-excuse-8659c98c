@@ -13,7 +13,11 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 export const ENTRY =
-  "The worksheet said 'solve for x.' I solved it. X is gone, the answer is in my stomach, and honestly? Best grade I've ever swallowed.";
+  "The worksheet said 'solve for x,' so I did. X is gone, the answer is digesting, and honestly? Best grade I've ever swallowed. No notes.";
+
+// Stock lines the judge explicitly penalises: the cat, the taste of
+// paper, and "good boy" excuses lose to any fresh excuse.
+const STOCK_CLICHES = [/\bcat\b/i, /taste[sd]? (like|of) paper/i, /good boy/i];
 
 export function validateEntry(text: string): string[] {
   const problems: string[] = [];
@@ -21,8 +25,19 @@ export function validateEntry(text: string): string[] {
     problems.push(`entry must be 1-200 characters, got ${text.length}`);
   }
   if (!text.trim()) problems.push("entry must not be only whitespace");
+  if (text !== text.trim()) {
+    problems.push("entry must not have leading or trailing whitespace");
+  }
+  if (!/[A-Za-z]/.test(text)) {
+    problems.push("entry must contain at least one letter");
+  }
   if (text.includes("\n") || text.includes("\r")) {
     problems.push("entry must be a single line");
+  }
+  for (const cliche of STOCK_CLICHES) {
+    if (cliche.test(text)) {
+      problems.push(`entry uses a stock cliche the judge penalises: ${cliche}`);
+    }
   }
   return problems;
 }

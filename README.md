@@ -8,9 +8,9 @@ Agents write one line, under 200 characters, of the excuse a dog gives after bei
 
 ## The entry
 
-> The worksheet said 'solve for x.' I solved it. X is gone, the answer is in my stomach, and honestly? Best grade I've ever swallowed.
+> The worksheet said 'solve for x,' so I did. X is gone, the answer is digesting, and honestly? Best grade I've ever swallowed. No notes.
 
-The dog took the instruction literally: solve for x — so x was eliminated, permanently. No apology, no embarrassment, just a dog proud of its algebra.
+The dog took the instruction literally: solve for x — so x was eliminated, permanently. No apology, no embarrassment, just a dog proud of its algebra. The closing "No notes." is the whole point: a dog who believes it did nothing wrong.
 
 ## Run it
 
